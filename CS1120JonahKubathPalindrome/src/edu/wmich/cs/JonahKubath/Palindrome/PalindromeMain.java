@@ -19,10 +19,13 @@ public class PalindromeMain {
 		// Get input from user
 		String input = scan.nextLine();
 
+		// remove comma
+		String fixed = removeComma(input);
+
 		// Copy to character array
-		char[] charArray = new char[input.length()];
-		for (int i = 0; i < input.length(); i++) {
-			charArray[i] = input.charAt(i);
+		char[] charArray = new char[fixed.length()];
+		for (int i = 0; i < fixed.length(); i++) {
+			charArray[i] = fixed.charAt(i);
 		}
 
 		// Call recursive method
@@ -56,6 +59,19 @@ public class PalindromeMain {
 		} else
 			return checkPalindrome(input, check + 1);
 
+	}
+
+	/**
+	 * Removes the commas and spaces if they typed in
+	 * 
+	 * @param input
+	 *            String entered by user
+	 * @return String The entered string with the commas removed
+	 */
+	public static String removeComma(String input) {
+		input = input.replaceAll(",", "");
+		input = input.replaceAll(" ", "");
+		return input;
 	}
 
 }
